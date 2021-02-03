@@ -30,16 +30,22 @@
 
 
 	<div class="container">
-	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for product" title="Type in a name">
+	
+		<h1>Product Inventory Page</h1>
+		<p>This is the product inventory page</p>
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for product" title="Type in a name">
 		<table class="table table-hover">
-		
 			<thead>
 				<tr>
+				
 					<th scope="col">Photo Thumb</th>	
 					<th scope="col">Product Name</th>
 					<th scope="col">Category</th>
 					<th scope="col">Condition</th>
 					<th scope="col">Price</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -50,17 +56,22 @@
 						<td>${result.category}</td>
 						<td>${result.cond}</td>
 						<td>${result.price}</td>
-						</tr>
+						<td>
+						<a type= "button" class="btn btn-danger" href="/dele?id=${result.id}">Delete</a>
+						</td>
+						<td><a type= "button" class="btn btn-warning"  href="/dele?id=${result.id}">Update</a></td>
+						
 				</c:forEach>
+				
 			</tbody>
 			
 		</table>
-		
-	
+		<a type="button" class="btn btn" href="login">Logout</a>
+			<a type="button" class="btn btn-success" href="add_prod-admin">Add Product</a>
 	</div>
 	
 	<script>
-function myFunction() {
+	function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();

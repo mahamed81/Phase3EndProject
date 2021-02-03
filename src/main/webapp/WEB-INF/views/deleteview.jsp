@@ -11,12 +11,12 @@
 </head>
 <body>
 
-	<h1 style="color: blue">Delete Task</h1>
+	<h1 style="color: blue"></h1>
 
 	<form:form action="delemp" method="post" modelAttribute="delete">
 		<table>
 			<tr>
-				<th>ID</th>
+				<th>Product Name</th>
 				<td>${delete.id}
 				<form:hidden path="id"/>
 				</td>

@@ -9,92 +9,51 @@
 </head>
 
 <body>
-	<h1 style="color: blue;">Add Task</h1>
+	<h1 style="color: blue;">Add Product</h1>
 	
 
 
-		<form:form method="post" modelAttribute="task">
+		<form:form method="post" modelAttribute="prod">
+			
+			<form:label path="productName">Product Name</form:label>
+			<form:input path="productName" type="text" required="required" />
+			<br>
+			<form:errors path="productName" />
 
-			<form:label path="taskName">Task Name</form:label>
-			<form:input path="taskName" type="text" required="required" />
+			<form:label path="category">Category</form:label>
+			<form:input path="category" type="text" required="required" />
 			<br>
-			<form:errors path="taskName" />
+			<form:errors path="category" />
 
-			<form:label path="startDate">Start Date</form:label>
-			<form:input path="startDate" type="date" required="required" />
+			<form:label path="cond">Condition</form:label>
+			<form:input path="cond" type="text" required="required" />
 			<br>
-			<form:errors path="startDate" />
+			<form:errors path="cond" required="required" />
 
-			<form:label path="endDate">End Date</form:label>
-			<form:input path="endDate" type="date" required="required" />
+			<form:label path="price">Price</form:label>
+			<form:input path="price" type="number" required="required" />
 			<br>
-			<form:errors path="endDate" required="required" />
-
-			<form:label path="descrip">Description</form:label>
-			<form:textarea path="descrip" required="required" />
-			<br>
-			<form:errors path="descrip" required="required" />
-
-			<form:label path="email">Email</form:label>
-			<form:input path="email" type="email" required="required" />
-			<br>
-			<br>
-			<form:errors path="email" required="required" />
-
-			<form:label path="severity">Severity</form:label>
-			<form:select path="severity">
-				<option value="high">High</option>
-				<option value="medium">Medium</option>
-				<option value="low">Low</option>
-			</form:select>
-			<br>
-			<form:errors path="severity" required="required" />
+			<form:errors path="price" required="required" />
 
 			<button type="submit">Submit</button>
 		</form:form>
 
- 
+ 	<script>
+ 		$(function () {
+    $(":file").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
 
-	<%-- <form:form method="post" modelAttribute="task">
-
-		<table>
-			<tr>
-				<td align="right">Task Name:</td>
-				<td align="left"><input type="text" path="taskName" required /></td>
-			</tr>
-			<tr>
-				<td align="right">Start Date:</td>
-				<td align="left"><input type="date" path="startDate" required /></td>
-			</tr>
-			<tr>
-				<td align="right">End Date:</td>
-				<td align="left"><input type="date" path="endDate" required /></td>
-			</tr>
-			<tr>
-				<td align="right">Description:</td>
-				<td align="left"><textarea rows="" cols="" path="descrip"
-						required></textarea></td>
-			</tr>
-			<tr>
-				<td align="right">Email:</td>
-				<td align="left"><input type="email" path="email" required /></td>
-			</tr>
-
-			<tr>
-				<td align="right">Severity:</td>
-				<td align="left"><select path=severity>
-						<option value="high">High</option>
-						<option value="medium">Medium</option>
-						<option value="low">low</option>
-
-				</select></td>
-			</tr>
-
-		</table>
-
-		<button type="submit">Save</button>
-		</form:form> --%>
-
+function imageIsLoaded(e) {
+    $('#myImg').attr('src', e.target.result);
+};
+ 	
+ 	</script>
 	
 </body>
 </html>

@@ -28,57 +28,44 @@
 		<a class="navbar-brand" href="#">Register</a>
 	</nav>
 
-
 	<div class="container">
-	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for product" title="Type in a name">
 		<table class="table table-hover">
-		
 			<thead>
 				<tr>
-					<th scope="col">Photo Thumb</th>	
-					<th scope="col">Product Name</th>
-					<th scope="col">Category</th>
-					<th scope="col">Condition</th>
+				
+					<th scope="col">Product</th>	
+					<th scope="col">Unit Price</th>
+					<th scope="col">Quantity</th>
 					<th scope="col">Price</th>
+					<th scope="col">Action</th>
+					
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${result}" var="result">
+				<c:forEach items="${shop}" var="result">
 					<tr>
-						<td><a href="/prod-detail?id=${result.id}" > <img width = "100px" height="150px" alt="" src="https://i.redd.it/u296oianoh121.jpg"> </a></td>
 						<td>${result.productName}</td>
-						<td>${result.category}</td>
-						<td>${result.cond}</td>
 						<td>${result.price}</td>
+						<td>${result.quantity}</td>
+						<td>${result.price}</td>
+						<td><a type="button" class="btn btn-danger"
+							href="/remo-prod?id=${result.id}">Remove</a></td>
 						</tr>
+						<td><h2>Grand Total: ${result.price}</h2></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						
+						<td><a type="button" class="btn btn-success"
+							href="/order?id=${result.id}">Checkout</a></td>
 				</c:forEach>
 			</tbody>
 			
 		</table>
 		
-	
+		
+			<a type="button" class="btn btn-warning" href="prod_list">Continue Shopping</a>
 	</div>
-	
-	<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
-
 </body>
 </html>
